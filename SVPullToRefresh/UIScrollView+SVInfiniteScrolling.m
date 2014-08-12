@@ -171,13 +171,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
 }
 
 - (void)setScrollViewContentInset:(UIEdgeInsets)contentInset {
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         self.scrollView.contentInset = contentInset;
-                     }
-                     completion:NULL];
+    self.scrollView.contentInset = contentInset;
 }
 
 #pragma mark - Observing
