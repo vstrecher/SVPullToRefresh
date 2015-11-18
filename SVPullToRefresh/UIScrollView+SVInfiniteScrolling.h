@@ -37,6 +37,12 @@ typedef NSUInteger SVInfiniteScrollingState;
 @property (nonatomic, readonly) SVInfiniteScrollingState state;
 @property (nonatomic, readwrite) BOOL enabled;
 
+/**
+ *  Остаток до низу таблицы, в момент пересечения которого нужно начинать обновление
+ */
+@property (nonatomic, assign) NSInteger tableDiff;
+
+
 - (void)setCustomView:(UIView *)view forState:(SVInfiniteScrollingState)state;
 
 - (void)startAnimating;

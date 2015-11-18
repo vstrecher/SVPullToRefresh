@@ -132,7 +132,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.state = SVInfiniteScrollingStateStopped;
         self.enabled = YES;
-        
+        self.tableDiff = self.scrollView.bounds.size.height;
         self.viewForState = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
     }
     
@@ -194,7 +194,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
 - (void)scrollViewDidScroll:(CGPoint)contentOffset {
     if(self.state != SVInfiniteScrollingStateLoading && self.enabled) {
         CGFloat scrollViewContentHeight = self.scrollView.contentSize.height;
-        CGFloat scrollOffsetThreshold = scrollViewContentHeight-(self.scrollView.bounds.size.height*3);
+        CGFloat scrollOffsetThreshold = scrollViewContentHeight-self.tableDiff;
         
         if(self.state == SVInfiniteScrollingStateTriggered)
             self.state = SVInfiniteScrollingStateLoading;
